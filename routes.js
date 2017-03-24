@@ -18,6 +18,8 @@ router.post('/authenticate', accounts.authenticate);
 router.get('/dashboard', dashboard.index);
 router.get('/dashboard/getpicture/:path/:name', dashboard.getPicture);
 router.post('/dashboard/uploadpicture', dashboard.uploadPicture);
+router.get('/dashboard/deleteallpictures', dashboard.deleteAllPictures);
+router.get('/dashboard/deletepicture/:path/:name', dashboard.deletePicture);
 router.get('/about', about.index);
 
 module.exports = router;

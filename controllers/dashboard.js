@@ -26,6 +26,17 @@ const dashboard = {
     const fullPicturePath = pictureStore.getPicturePath(request.params.path, request.params.name);
     response.sendFile(fullPicturePath);
   },
+
+  deleteAllPictures(request, response) {
+    pictureStore.deleteAllPicturea();
+    response.redirect('/dashboard');
+  },
+
+  deletePicture(request, response) {
+    pictureStore.deletePicture(request.params.path, request.params.name);
+    response.redirect('/dashboard');
+  },
+
 };
 
 module.exports = dashboard;
