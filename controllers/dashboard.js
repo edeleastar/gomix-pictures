@@ -23,7 +23,7 @@ const dashboard = {
   },
 
   getPicture(request, response) {
-    const fullPicturePath = pictureStore.getFullPath(request.params.path, request.params.name);
+    const fullPicturePath = pictureStore.getPicturePath(request.params.path, request.params.name);
     response.sendFile(fullPicturePath);
   },
 };
