@@ -28,7 +28,7 @@ const dashboard = {
   },
 
   deleteAllPictures(request, response) {
-    pictureStore.deleteAllPicturea();
+    pictureStore.deleteAllPictures();
     response.redirect('/dashboard');
   },
 

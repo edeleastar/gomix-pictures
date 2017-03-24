@@ -64,7 +64,7 @@ const pictureStore = {
     return this.path + id + '/' + name;
   },
 
-  deleteAllPicturea() {
+  deleteAllPictures() {
     fs.removeSync(this.pictureFolder);
     this.store.removeAll(this.collection);
   },
