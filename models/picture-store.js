@@ -19,6 +19,9 @@ const pictureStore = {
   },
 
   getAlbum(userid) {
+    if (!this.path) {
+      this.init();
+    }
     return this.store.findOneBy(this.collection, { userid: userid });
   },
 
@@ -55,8 +58,23 @@ const pictureStore = {
   },
 
   getPicturePath(id, name) {
+    if (!this.path) {
+      this.init();
+    }
     return this.path + id + '/' + name;
   },
+
+  deleteAllPicturea() {
+    fs.removeSync(this.pictureFolder);
+    this.store.removeAll(this.collection);
+  },
+
+  deletePicture(userId, fileName) {
+    let album = this.getAlbum(userId);
+    _.remove(album.pictures, { file: fileName});
+
+    fs.removeSync(this.getPicturePath(userId, fileName));
+  }
 };
 
 module.exports = pictureStore;
